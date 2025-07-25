@@ -20,7 +20,6 @@ ionic cordova plugin add cordova-plugin-advanced-http
 npm install ionic-insta-search --save
 ```
 
-
 ### Using the library
 
 ```javascript
@@ -28,10 +27,10 @@ import * as insta from 'ionic-insta-search';
 
 /**
  * Given a search query, searching on insta
- * @param {string} search value (videoId).
+ * @param {string} search value (instaId).
  */
-const videos = await insta.search('XYZ');
-const videos = await insta.search('https://www.instagram.com/p/XYZ');
+const videos = await insta.search('instaId');
+const videos = await insta.search('https://www.instagram.com/p/instaId');
 console.log(videos);
 
 {
@@ -42,17 +41,17 @@ console.log(videos);
   ],
   "postInfo": {
     "ownerUsername": "appit-online",
-            "ownerName": "AppIT",
-            "isVerified": false,
-            "isPrivate": false,
-            "commentsDisabled": false,
-            "likeCounterDisabled": false,
-            "location": "Mountains Spot",
-            "followers": 15962,
-            "likes": 4120,
-            "isAd": false,
-            "caption": "#sudtirol #dolomiti....",
-            "createdAt": "1738502812"
+    "ownerName": "AppIT",
+    "isVerified": false,
+    "isPrivate": false,
+    "commentsDisabled": false,
+    "likeCounterDisabled": false,
+    "location": "Mountains Spot",
+    "followers": 15962,
+    "likes": 4120,
+    "isAd": false,
+    "caption": "#sudtirol #dolomiti....",
+    "createdAt": "1738502812"
   },
   "media": [
     {
