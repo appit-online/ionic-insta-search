@@ -75,17 +75,33 @@ export class ParserService {
   }
 
   private formatMediaDetails(media: any) {
-    return media?.is_video ? {
-      type: 'video',
-      dimensions: media?.dimensions ?? { width: 0, height: 0 },
-      videoViewCount: media?.video_view_count ?? 0,
-      url: media?.video_url ?? '',
-      thumbnail: media?.display_url ?? ''
-    } : {
-      type: 'image',
-      dimensions: media?.dimensions ?? { width: 0, height: 0 },
-      url: media?.display_url ?? ''
-    };
+    const fallbackDimensions = { width: 0, height: 0 };
+    const dimensions = media?.dimensions ?? fallbackDimensions;
+
+    // Versuche die größte Bildquelle zu finden
+    let bestImageUrl = media?.display_url ?? '';
+    if (Array.isArray(media?.display_resources)) {
+      const sorted = media.display_resources.sort((a: any, b: any) => b.config_width - a.config_width);
+      if (sorted.length > 0) {
+        bestImageUrl = sorted[0].src ?? bestImageUrl;
+      }
+    }
+
+    if (media?.is_video) {
+      return {
+        type: 'video',
+        dimensions,
+        videoViewCount: media?.video_view_count ?? 0,
+        url: media?.video_url ?? '',
+        thumbnail: bestImageUrl
+      };
+    } else {
+      return {
+        type: 'image',
+        dimensions,
+        url: bestImageUrl
+      };
+    }
   }
 
   createResponse(data: any): InstagramResponse {
