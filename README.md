@@ -39,20 +39,18 @@ console.log(videos);
     "https://scontent-muc2-1.cdninstagram.com/v...",
     ....
   ],
-  "postInfo": {
-    "username": "appit-online",
-    "name": "AppIT",
-    "isVerified": false,
-    "isPrivate": false,
-    "commentsDisabled": false,
-    "likeCounterDisabled": false,
-    "location": "Mountains Spot",
-    "followers": 15962,
-    "likes": 4120,
-    "isAd": false,
-    "caption": "#sudtirol #dolomiti....",
-    "createdAt": "1738502812"
-  },
+  "username": "appit-online",
+  "name": "AppIT",
+  "isVerified": false,
+  "isPrivate": false,
+  "commentsDisabled": false,
+  "likeCounterDisabled": false,
+  "location": "Mountains Spot",
+  "followers": 15962,
+  "likes": 4120,
+  "isAd": false,
+  "caption": "#sudtirol #dolomiti....",
+  "createdAt": "1738502812",
   "media": [
     {
       "type": "image",

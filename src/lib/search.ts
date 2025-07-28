@@ -5,20 +5,18 @@ import { ParserService } from './parser.service';
 export interface InstagramResponse {
   resultsCount: number;
   urls: string[];
-  postInfo: {
-    username: string;
-    name: string;
-    isVerified: boolean;
-    isPrivate: boolean;
-    commentsDisabled: boolean;
-    likeCounterDisabled: boolean;
-    location: string;
-    likes: number;
-    followers: number;
-    isAd: boolean;
-    caption: string;
-    createdAt: number;
-  };
+  username: string;
+  name: string;
+  isVerified: boolean;
+  isPrivate: boolean;
+  commentsDisabled: boolean;
+  likeCounterDisabled: boolean;
+  location: string;
+  likes: number;
+  followers: number;
+  isAd: boolean;
+  caption: string;
+  createdAt: number;
   media: {
     createdAt: number;
     type: string;

@@ -126,7 +126,7 @@ export class ParserService {
     return {
       resultsCount: urls.length,
       urls,
-      postInfo: this.formatPostInfo(data),
+      ...this.formatPostInfo(data),
       media
     };
   }
