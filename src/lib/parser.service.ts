@@ -59,8 +59,8 @@ export class ParserService {
     const createdAt = captionEdges.length > 0 ? captionEdges[0]?.node?.created_at ?? null : null;
 
     return {
-      ownerUsername: data?.owner?.username ?? '',
-      ownerName: data?.owner?.full_name ?? '',
+      username: data?.owner?.username ?? '',
+      name: data?.owner?.full_name ?? '',
       isVerified: data?.owner?.is_verified ?? false,
       isPrivate: data?.owner?.is_private ?? false,
       commentsDisabled: data?.comments_disabled ?? false,
@@ -76,21 +76,26 @@ export class ParserService {
 
   private formatMediaDetails(media: any) {
     const fallbackDimensions = { width: 0, height: 0 };
-    const dimensions = media?.dimensions ?? fallbackDimensions;
 
-    // Versuche die größte Bildquelle zu finden
     let bestImageUrl = media?.display_url ?? '';
-    if (Array.isArray(media?.display_resources)) {
+    let bestDimensions = media?.dimensions ?? fallbackDimensions;
+
+    if (Array.isArray(media?.display_resources) && media.display_resources.length > 0) {
       const sorted = media.display_resources.sort((a: any, b: any) => b.config_width - a.config_width);
-      if (sorted.length > 0) {
-        bestImageUrl = sorted[0].src ?? bestImageUrl;
+      const best = sorted[0];
+      if (best?.src) {
+        bestImageUrl = best.src;
+        bestDimensions = {
+          width: best.config_width ?? bestDimensions.width,
+          height: best.config_height ?? bestDimensions.height
+        };
       }
     }
 
     if (media?.is_video) {
       return {
         type: 'video',
-        dimensions,
+        dimensions: media?.dimensions ?? fallbackDimensions, // Behalte Original-Video-Dimensionen bei
         videoViewCount: media?.video_view_count ?? 0,
         url: media?.video_url ?? '',
         thumbnail: bestImageUrl
@@ -98,7 +103,7 @@ export class ParserService {
     } else {
       return {
         type: 'image',
-        dimensions,
+        dimensions: bestDimensions,
         url: bestImageUrl
       };
     }

@@ -40,8 +40,8 @@ console.log(videos);
     ....
   ],
   "postInfo": {
-    "ownerUsername": "appit-online",
-    "ownerName": "AppIT",
+    "username": "appit-online",
+    "name": "AppIT",
     "isVerified": false,
     "isPrivate": false,
     "commentsDisabled": false,

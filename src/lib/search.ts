@@ -6,8 +6,8 @@ export interface InstagramResponse {
   resultsCount: number;
   urls: string[];
   postInfo: {
-    ownerUsername: string;
-    ownerName: string;
+    username: string;
+    name: string;
     isVerified: boolean;
     isPrivate: boolean;
     commentsDisabled: boolean;
