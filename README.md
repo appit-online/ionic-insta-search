@@ -1,4 +1,4 @@
-# [ionic-insta-search: Node.js](https://github.com/appit-online/ionic-insta-search)
+# [ionic-insta-search: Ionic](https://github.com/appit-online/ionic-insta-search)
 
 Search reels, posts,... on Instagram without API key or Cookie in ionic apps
 

@@ -1,6 +1,6 @@
 {
   "name": "ionic-insta-search",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Search posts and reels on Insta without API or Cookie key in ionic apps",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
