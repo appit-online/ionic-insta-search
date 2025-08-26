@@ -65,12 +65,6 @@ console.log(videos);
 
 ```
 
-## Supported Node.js Versions
-
-Our client libraries follow the [Node.js release schedule](https://nodejs.org/en/about/releases/).
-Libraries are compatible with all current _active_ and _maintenance_ versions of
-Node.js.
-
 ## License
 
 Apache Version 2.0
